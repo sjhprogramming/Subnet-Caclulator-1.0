@@ -8,10 +8,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
+
+
+
 namespace Subnet_Caclulator_1._0
 {
     public partial class frmMain : Form
     {
+
+        public int FirstHost; // First Availibale Host
+
         public frmMain()
         {
             InitializeComponent();
@@ -28,29 +35,22 @@ namespace Subnet_Caclulator_1._0
             comSubnetMask.Items.Add("255.255.255.192");
             comSubnetMask.Items.Add("255.255.255.128");
 
-            //comSubnetMask.Text("Select a Subnet Mask");
-
-
-
-
-
-
-
         }
 
         private void btnCalculate_Click(object sender, EventArgs e)
         {
-            string NetworkAddress = null;           // Network Address Variable
-            string BroadcastAddress = null;         // Broadcast Address Variable
-            string FirstHostAddress = null;
-            string LastHostAddress = null;
-            string subnet = null;                   // Subnet Variable
+            string NetworkAddress;           // Network Address Variable
+            string BroadcastAddress;         // Broadcast Address Variable
+            string FirstHostAddress;
+            string LastHostAddress;
+            string subnet;                   // Subnet Variable
 
+           
             subnet = comSubnetMask.SelectedItem.ToString(); //Assign the selected subnet to the string
-
 
             //Create an escape character to grab the last octet:
             Char[] DelimChar = { '.' };
+
 
             //Subnet Octets into an array for Binary Conversion.
             string[] netOctet = subnet.Split(DelimChar);
@@ -93,8 +93,43 @@ namespace Subnet_Caclulator_1._0
             lblBroadcastAddress.Text = Octet1 + "." + Octet2 + "." + Octet3 + "." + BCastAddress;
 
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            // Fire the code to Calculate the IpAddresses
+            CalculateIpAddresses(txtIPAdd.Text, comSubnetMask.SelectedItem.ToString());
+
+        }
+
+        private void CalculateIpAddresses(string IpAddress, string NetSubNetMask)
+        {
+            var lastOctet = new SubnetCalculatorLibrary.IPAddressing();
+
+            try
+            {
+                //Populate the First Host Address
+                lblFirstHostAddress.Text = lastOctet.GetFirstIpAddress(IpAddress);
+                
+                //Total Network Addresses - Includes Network and Broadcast
+                lblNetworkAddresses.Text = lastOctet.GetAvailiableAddress(NetSubNetMask).ToString();
+                
+                //Work out how many addresses can be used for endpoints / dhcp
+                lblUsableAddress.Text = Convert.ToString(lastOctet.GetAvailiableAddress(NetSubNetMask) - 2);
+
+                //Populate Network Address
+                lblNetworkAddress.Text = IpAddress;
 
 
+            }
+            
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+
+            
         }
     }
 }

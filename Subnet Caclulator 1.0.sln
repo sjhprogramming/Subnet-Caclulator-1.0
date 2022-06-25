@@ -3,7 +3,12 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32526.322
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Subnet Caclulator 1.0", "Subnet Caclulator 1.0\Subnet Caclulator 1.0.csproj", "{7B3B2B29-6DA4-4A0C-B8F4-FDA0B6D11C3F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Subnet Caclulator 1.0", "Subnet Caclulator 1.0\Subnet Caclulator 1.0.csproj", "{7B3B2B29-6DA4-4A0C-B8F4-FDA0B6D11C3F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{BF29381F-E878-4EB7-8A7A-0D2B04EF4163} = {BF29381F-E878-4EB7-8A7A-0D2B04EF4163}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SubnetCalculatorLibrary", "SubnetCalculatorLibrary\SubnetCalculatorLibrary.csproj", "{BF29381F-E878-4EB7-8A7A-0D2B04EF4163}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +20,10 @@ Global
 		{7B3B2B29-6DA4-4A0C-B8F4-FDA0B6D11C3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7B3B2B29-6DA4-4A0C-B8F4-FDA0B6D11C3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7B3B2B29-6DA4-4A0C-B8F4-FDA0B6D11C3F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF29381F-E878-4EB7-8A7A-0D2B04EF4163}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF29381F-E878-4EB7-8A7A-0D2B04EF4163}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF29381F-E878-4EB7-8A7A-0D2B04EF4163}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF29381F-E878-4EB7-8A7A-0D2B04EF4163}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
