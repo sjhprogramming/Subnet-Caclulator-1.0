@@ -120,8 +120,20 @@ namespace Subnet_Caclulator_1._0
                 //Populate Network Address
                 lblNetworkAddress.Text = IpAddress;
 
+                //Populate the Last Host Address
+                lblLastHostAddress.Text = lastOctet.GetLastHostAddress(IpAddress, NetSubNetMask);
+
+                //Populate the Last Host Address
+                lblBroadcastAddress .Text = lastOctet.GetBroadCastAddress(IpAddress, NetSubNetMask);
+
+                //Populate Total Subnets
+                lblTotSubnets.Text = Convert.ToString(256 / lastOctet.GetAvailiableAddress(NetSubNetMask));
+
+                //Populate Binary Subnet Mask
+                lblBinaryMask.Text = Convert.ToString(lastOctet.GetBinarySubnetMask(NetSubNetMask));
 
             }
+                
             
             catch (Exception ex)
             {
@@ -130,6 +142,11 @@ namespace Subnet_Caclulator_1._0
 
 
             
+        }
+
+        private void txtIPAdd_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

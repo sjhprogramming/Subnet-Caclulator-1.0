@@ -48,7 +48,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnCalculate = new System.Windows.Forms.Button();
             this.txtIPAdd = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
@@ -57,27 +56,30 @@
             // lblNetwork
             // 
             this.lblNetwork.AutoSize = true;
+            this.lblNetwork.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblNetwork.Location = new System.Drawing.Point(25, 34);
             this.lblNetwork.Name = "lblNetwork";
-            this.lblNetwork.Size = new System.Drawing.Size(100, 15);
+            this.lblNetwork.Size = new System.Drawing.Size(144, 21);
             this.lblNetwork.TabIndex = 0;
             this.lblNetwork.Text = "Network Address:";
             // 
             // comSubnetMask
             // 
+            this.comSubnetMask.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.comSubnetMask.FormattingEnabled = true;
-            this.comSubnetMask.Location = new System.Drawing.Point(25, 133);
+            this.comSubnetMask.Location = new System.Drawing.Point(27, 139);
             this.comSubnetMask.Name = "comSubnetMask";
-            this.comSubnetMask.Size = new System.Drawing.Size(178, 23);
+            this.comSubnetMask.Size = new System.Drawing.Size(226, 29);
             this.comSubnetMask.TabIndex = 2;
             this.comSubnetMask.Text = "Please Choose a Subnet";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label2.Location = new System.Drawing.Point(25, 115);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(78, 15);
+            this.label2.Size = new System.Drawing.Size(113, 21);
             this.label2.TabIndex = 3;
             this.label2.Text = "Subnet Mask:";
             // 
@@ -99,6 +101,7 @@
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.groupBox1.Location = new System.Drawing.Point(273, 34);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(750, 404);
@@ -273,30 +276,23 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Network Address:";
             // 
-            // btnCalculate
-            // 
-            this.btnCalculate.Location = new System.Drawing.Point(25, 201);
-            this.btnCalculate.Name = "btnCalculate";
-            this.btnCalculate.Size = new System.Drawing.Size(178, 41);
-            this.btnCalculate.TabIndex = 0;
-            this.btnCalculate.Text = "Calculate";
-            this.btnCalculate.UseVisualStyleBackColor = true;
-            this.btnCalculate.Click += new System.EventHandler(this.btnCalculate_Click);
-            // 
             // txtIPAdd
             // 
+            this.txtIPAdd.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtIPAdd.Location = new System.Drawing.Point(27, 58);
             this.txtIPAdd.Name = "txtIPAdd";
-            this.txtIPAdd.Size = new System.Drawing.Size(176, 23);
+            this.txtIPAdd.Size = new System.Drawing.Size(226, 29);
             this.txtIPAdd.TabIndex = 5;
+            this.txtIPAdd.TextChanged += new System.EventHandler(this.txtIPAdd_TextChanged);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(141, 295);
+            this.button1.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button1.Location = new System.Drawing.Point(28, 207);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(225, 51);
             this.button1.TabIndex = 6;
-            this.button1.Text = "button1";
+            this.button1.Text = "Calculate";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -307,13 +303,13 @@
             this.ClientSize = new System.Drawing.Size(1035, 450);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.txtIPAdd);
-            this.Controls.Add(this.btnCalculate);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.comSubnetMask);
             this.Controls.Add(this.lblNetwork);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "frmMain";
-            this.Text = "frmMain";
+            this.Text = "Subnet Calculator";
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -344,7 +340,6 @@
         private Label label4;
         private Label label3;
         private Label label1;
-        private Button btnCalculate;
         private TextBox txtIPAdd;
         private Button button1;
     }

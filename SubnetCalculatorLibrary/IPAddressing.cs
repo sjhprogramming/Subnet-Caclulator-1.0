@@ -7,6 +7,7 @@
         /// </summary>
         private string ipAddress;
         private string firstAddress;
+        private string lastAddress;
         /// <summary>
         /// Ip Address to work with in this class
         /// </summary>
@@ -59,6 +60,41 @@
             int AvailAddress = 256 - Convert.ToInt32(LastSubOctet);
 
             return AvailAddress;
+        }
+
+        public object GetBinarySubnetMask(string NetSubNetMask)
+        {
+            string binaryAddress = Convert.ToString(Int32.Parse(GetLastOctet(NetSubNetMask, 0)), 2) + "."
+                + Convert.ToString(Int32.Parse(GetLastOctet(NetSubNetMask, 1)),2) + "."
+                + Convert.ToString(Int32.Parse(GetLastOctet(NetSubNetMask, 2)),2) + "." 
+                + Convert.ToString(Int32.Parse(GetLastOctet(NetSubNetMask, 3)),2);
+            return binaryAddress;
+
+        }
+        public string GetLastHostAddress(string IpAddress, string NetSubNetMask)
+        {
+            string LastNetOctet = GetLastOctet(IpAddress, 3);
+            int AvailAddress = GetAvailiableAddress(NetSubNetMask);
+
+            int lastAddressOct = Convert.ToInt32(LastNetOctet) + AvailAddress - 2;
+
+            lastAddress = GetLastOctet(IpAddress, 0) + "." + GetLastOctet(IpAddress, 1) + "." + GetLastOctet(IpAddress, 2) + "." + lastAddressOct.ToString();
+
+            return lastAddress;
+
+        }
+
+        public string GetBroadCastAddress(string IpAddress, string NetSubNetMask)
+        {
+            string LastNetOctet = GetLastOctet(IpAddress, 3);
+            int AvailAddress = GetAvailiableAddress(NetSubNetMask);
+
+            int lastAddressOct = Convert.ToInt32(LastNetOctet) + AvailAddress - 1;
+
+            lastAddress = GetLastOctet(IpAddress, 0) + "." + GetLastOctet(IpAddress, 1) + "." + GetLastOctet(IpAddress, 2) + "." + lastAddressOct.ToString();
+
+            return lastAddress;
+
         }
     }
 }
